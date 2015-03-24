@@ -1,13 +1,26 @@
 /*
   LiquidCrystal Library - Serial Input
 
- Demonstrates the use a 16x2 LCD display.  The LiquidCrystal
+ Demonstrates the use of a 16x2 LCD display.  The LiquidCrystal
  library works with all LCD displays that are compatible with the
  Hitachi HD44780 driver. There are many of them out there, and you
  can usually tell them by the 16-pin interface.
 
- This sketch displays text sent over the serial port
- (e.g. from the Serial Monitor) on an attached LCD.
+ This sketch has three "loopn" subroutines. "loop" should call
+ one of them.
+
+ loop0 is from the original example. It displays text sent over the
+ serial port (e.g. from the Serial Monitor) on an attached LCD.
+
+ loop1 displays text supplied as a line at a time. The first
+ line is displayed on line 1 of the LCD; the second line is
+ displayed on line 2. Subsequent lines are displayed on line 2,
+ and the previous contents of line 2 is moved up -- that is, the
+ text scrolls up from the bottom.
+
+ loop2 displays text scrolling to the left; it is filled in a
+ character at a time, and when the first line is full, the text
+ starts to scroll.
 
  The circuit:
  * LCD RS pin to digital pin 12
@@ -29,6 +42,8 @@
  by Tom Igoe
  modified 22 Nov 2010
  by Tom Igoe
+
+ Subsequent code developed by Dean Bandes, 22 Mar 2015
 
  This example code is in the public domain.
 
